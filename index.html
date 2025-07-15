@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sweet Letter Surprise</title>
+  <style>
+    :root {
+      --env-color: #ffe8d6;
+      --paper-color: #fffef9;
+      --old-paper: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      --shadow: 0 10px 40px rgba(0,0,0,.1);
+      --accent: #ffb6b9;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #fff1f1;
+      font-family: "Georgia", serif;
+      background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255, 182, 185, 0.1) 40px, rgba(255, 182, 185, 0.1) 80px),
+                        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255, 182, 185, 0.1) 40px, rgba(255, 182, 185, 0.1) 80px);
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext y='50%25' x='50%25' dominant-baseline='middle' text-anchor='middle' font-size='30'%3E%F0%9F%8C%B7%F0%9F%A7%B8%E2%9C%A8%3C/text%3E%3C/svg%3E");
+      background-repeat: repeat;
+      opacity: 0.12;
+      pointer-events: none;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 480px;
+      height: 300px;
+      perspective: 2000px;
+      z-index: 1;
+    }
+
+    .envelope-sealed {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--env-color);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #e07a5f;
+      transition: all 0.5s ease;
+      border: 2px solid #ffd4cf;
+      cursor: pointer;
+    }
+
+    .envelope-sealed:hover {
+      transform: scale(1.05);
+    }
+
+    .decoration {
+      display: none;
+    }
+
+    .letter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: var(--old-paper);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border-radius: 12px;
+      overflow: auto;
+      z-index: 1;
+      top: 100%;
+      transition: top 1s ease-in-out 1s, opacity 0.5s ease-in 1s;
+      opacity: 0;
+    }
+
+    .wrapper.open .envelope-sealed {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .wrapper.open .letter {
+      top: 0%;
+      opacity: 1;
+      background-color: #fdf6f0;
+      background-image: var(--old-paper);
+      color: #5a3e36;
+    }
+
+    .open-btn {
+      display: none;
+    }
+
+    .letter-header, .letter-footer {
+      text-align: center;
+      font-style: italic;
+      color: #a95c68;
+      margin-bottom: 20px;
+    }
+
+    .letter-body {
+      line-height: 1.7;
+      font-size: 1.1rem;
+      color: #4a2c2a;
+    }
+
+    .signature {
+      margin-top: 40px;
+      font-family: "Brush Script MT", cursive;
+      font-size: 2em;
+      color: #b25f70;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper" id="wrapper">
+    <div class="envelope-sealed" id="openBtn">💌</div>
+    <div class="decoration">🌷🧸✨</div>
+
+    <div class="letter">
+      <div class="letter-header">🌸 July 15, 2025 🌸</div>
+      <div class="letter-body">
+        <p>My love,</p>
+        <p>I don't know how to say this but i think i'm really inlove sayo. Sobrang genuine mo maghamahal, sobrang totoo ka sa nararamdaman mo, ang understanding mo masyado sa mga bagay pagdating sakin. To the point na onti onti mo kong binibigyan ng assurance na "Hindi kita sasaktan". Hindi ko alam pano ako magaadjust sa ganto kasi sa totoo lang? never pa ko nakaexperience ng ganto, never ako guamwa ng mga gantong sweet stuffs para lang kiligin yuung taong gusto ko. kung ano tatanungin mo? gusto ko ng lambing lagi eh. alam kong di mo kaya ibigay yung time na gustong gusto ko talaga, pero nararamdaman ko yung sincerity na gusto mo din talaga gawin.</p>
+        <p>Kung nagaalinlangan ka pa din sakin kasi di pa tayo nagmemeet, naiintidihan ko. Handa akong patunayan sayo lahat ng kaya ko gawin. Handa akong patunayan hindi lang sayo pero sa family mo and sa mga nakakakilala sayo ng buo na hindi lang ako basta basta din.</p>
+        <p>Magkikita tayo soon, okay? ayoko makipagdate sayo na butas bulsa ko. ayokong makipagdate sayo na ikaw yung sasagot ng karamihan. Gustong gusto na din naman kita makita pero ang problema kasi talaga is pera. Pero hayaan mo, magsimula lang ako sa trabaho ko, di na tayo mauubusan ng pera.</p>
+        <p>Mahal kita, Angelica. Hindi na to crush lang eh. May something na nabuo na eh. Hindi ko inexpect na ganto kabilis madedevelop yung feelings ko pero gustong gusto talaga kita ipanalo angelica. Sana bigyan mo ng chance yung sarili mo na tanggapin ako and mahalin just like how you love them as well. I want to see kung gano pa katotoo magmahal yung isang angelica.</p>
+        <p>Thank you sa lahat, love. Sa pagiintindi, sa pag booby spoil. Sa pagsama sakin sa mga alat days ko sa codm, sa mga pagiintdi sa topak days ko. Sa lahat ng mga over sa galit kong mga nasabi sayo pero inintindi mo pa din. Simula pa lang to, and sana magwork tayo hanggang dulo. I love you, Angelica Magat</p>
+	<div class="signature">Joshywaps 💕</div>
+      </div>
+      <div class="letter-footer">💖 Bembang soon? YES PLEASE 💖</div>
+    </div>
+  </div>
+
+  <script>
+    const wrapper = document.getElementById('wrapper');
+    const btn = document.getElementById('openBtn');
+
+    btn.addEventListener('click', () => {
+      wrapper.classList.add('open');
+    });
+  </script>
+</body>
+</html>
